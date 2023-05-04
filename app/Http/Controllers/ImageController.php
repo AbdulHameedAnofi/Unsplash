@@ -34,8 +34,10 @@ class ImageController extends Controller
         return $result;
     }
 
-    public function deleteImage()
+    public function deleteImage($id)
     {
-
+        Image::where('id', $id)->first()->delete();
+        
+        return response(200)->json("Image deleted successfully!!");
     }
 }
